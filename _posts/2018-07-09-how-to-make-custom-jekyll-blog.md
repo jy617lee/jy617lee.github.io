@@ -35,15 +35,15 @@ Github Pages와 Jekyll을 통한 정적 블로깅은 아래와 같은 장점을 
 - 'Github에 가입이 되어 있으며 repository를 create, clone을 할 수 있다'는 것을 전제로 합니다. Github 사용법은 [여기](https://milooy.wordpress.com/2017/06/21/working-together-with-github-tutorial/)를 참고하세요.
 - 터미널은 [GitBash](https://gitforwindows.org/) 를 사용하는 것을 전제로 합니다. 
 
-#### Ruby 설치하기
+#### 1. Ruby 설치하기
 
 Jekyll은 Ruby로 만들어다. Mac과 달리 Window는 Ruby를 내장하지 않고 있기 때문에 설치가 필요하다. https://rubyinstaller.org/downloads/ 에서 맞는 버전을 설치한다. 
 
-#### Atom 설치하기
+#### 2. Atom 설치하기
 
 Jekyll의 설정파일이나 HTML 파일을 편집하는 용도로 사용합니다. **https://atom.io/** 에서 설치가 가능하다. 
 
-#### Github 계정에 Repository 만들기
+#### 3. Github 계정에 Repository 만들기
 
 Repository name이 `username.github.io` 인 Repository를 생성해 로컬 PC에 clone 한다. 
 
