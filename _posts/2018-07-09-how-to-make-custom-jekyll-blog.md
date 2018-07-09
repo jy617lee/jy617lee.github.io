@@ -92,7 +92,7 @@ $ bundle exec jekyll serve
 
 새로운 블로그가 생성된 것을 확인했다면 파일 탐색기에서 `my-awesome-site` 디렉토리 내에 생성된 `_config.yml`파일을 Atom 에디터를 통해 연다. `_config.yml`파일은 아래와 같다. 
 
-![config.yml]({{"/assets/_config.png" | absolute_url}})
+![config.yml]({{"/assets/config.png" | absolute_url}})
 
 title, email, description 등의 항목을 내 정보로 수정한다. 
 
