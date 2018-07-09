@@ -1,6 +1,8 @@
 .post {
   padding: 3rem 0;
-
+  font-family:  font-family: "NanumGothic";
+     src: url( '../_assets/fonts/NanumGothic.ttf') format( 'truetype');
+     
   &-info {
     color: $default-tint;
     font-family: $serif-secondary;
