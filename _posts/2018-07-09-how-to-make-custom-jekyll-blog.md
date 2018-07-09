@@ -12,7 +12,11 @@ author: "jeeyun"
 
 이와는 반대로 정적 페이지(Static Page)란 서버에 저장된 형태가 그대로 유지되는 웹페이지를 가르킨다. 
 
-<br/>
+<br>
+
+<br>
+
+<br>
 
 ## Github Pages와 jekyll
 
