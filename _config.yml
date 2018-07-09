@@ -1,13 +1,13 @@
 # Site settings
 title:          Nemo's blog
-description:    "Minimal Jekyll theme for storytellers"
+description:    "Jeeyun Lee's blog"
 url:            "https://jy617lee.github.io"
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         Jeeyun Lee
+  url:          https://jy617lee.github.io/
+  email:        jy617.lee@gmail.com
 
 # Build settings
 markdown:       kramdown
