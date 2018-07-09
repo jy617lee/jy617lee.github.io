@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  font-family: $serif-primary;
+  font-family: 'Nanum Gothic';
   font-size: 14px;
   overflow-y: scroll;
 
@@ -63,9 +63,4 @@ img {
 
 td {
   vertical-align: top;
-}
-
-@font-face {
-	  font-family: "NanumGothic";
-		  src: url( '../_assets/fonts/NanumGothic.ttf') format( 'truetype');
 }
