@@ -1,7 +1,6 @@
 # Site settings
 title:          Nemo's blog
 description:    "Minimal Jekyll theme for storytellers"
-baseurl:        "/tale"
 url:            "https://jy617lee.github.io"
 
 # Author
@@ -22,8 +21,12 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-paginate
+    - jekyll-remote-theme
   # - jemoji #Uncomment this to allow emoji in your post
 
 # Permalinks
-permalink:      /:year-:month-:day/:title
-paginate:       5
+remote_theme: chesterhow/tale
+theme:      tale
+
+permalink:  /:year-:month-:day/:title
+paginate:   5
