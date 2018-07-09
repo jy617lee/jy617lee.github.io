@@ -14,9 +14,7 @@ author: "jeeyun"
 
 <br>
 
-<br>
 
-<br>
 
 ## Github Pages와 jekyll
 
@@ -39,8 +37,6 @@ Github Pages와 Jekyll을 통한 정적 블로깅은 아래와 같은 장점을 
 - 'Github에 가입이 되어 있으며 repository를 create, clone을 할 수 있다'는 것을 전제로 합니다. Github 사용법은 [여기](https://milooy.wordpress.com/2017/06/21/working-together-with-github-tutorial/)를 참고하세요.
 - 터미널은 [GitBash](https://gitforwindows.org/) 를 사용하는 것을 전제로 합니다. 
 
-<br/>
-
 **1. Ruby 설치하기**
 
 Jekyll은 Ruby로 만들어다. Mac과 달리 Window는 Ruby를 내장하지 않고 있기 때문에 설치가 필요하다. https://rubyinstaller.org/downloads/ 에서 맞는 버전을 설치한다. 
@@ -53,7 +49,7 @@ Jekyll의 설정파일이나 HTML 파일을 편집하는 용도로 사용합니�
 
 Repository name이 `username.github.io` 인 Repository를 생성해 로컬 PC에 clone 한다. 
 
-<br/> <br/> 
+<br/> 
 
 ## Jekyll로 블로그 만들기
 
@@ -96,12 +92,12 @@ $ bundle exec jekyll serve
 
 새로운 블로그가 생성된 것을 확인했다면 파일 탐색기에서 `my-awesome-site` 디렉토리 내에 생성된 `_config.yml`파일을 Atom 에디터를 통해 연다. `_config.yml`파일은 아래와 같다. 
 
-![config file]({{"/assets/_config.png" | absolute_url}})
+![config.yml]({{"/assets/_config.png" | absolute_url}})
 
 title, email, description 등의 항목을 내 정보로 수정한다. 
 
 ~~~
-
+$ bundle exec jekyll serve
 ~~~
 
  위의 명령어로 서버를 다시 한 번 구동해 제대로 수정되었는지 확인한다.   
