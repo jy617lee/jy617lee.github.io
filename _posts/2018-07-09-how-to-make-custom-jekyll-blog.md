@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "github jekyll 블로그 만들기 - 1"
+title: "Github Pages와 jekyll로 정적 블로그 만들기"
 author: "jeeyun"
 ---
 
