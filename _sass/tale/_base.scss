@@ -5,14 +5,14 @@
 
 html,
 body {
-  font-family: 'Nanum Gothic';
+  font-family: $nanum;
   color: $default-color;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-family: 'Nanum Gothic';
+  font-family: $nanum;
   font-size: 14px;
   overflow-y: scroll;
 
