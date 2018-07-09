@@ -12,7 +12,7 @@ author: "jeeyun"
 
 이와는 반대로 정적 페이지(Static Page)란 서버에 저장된 형태가 그대로 유지되는 웹페이지를 가르킨다. 
 
-
+#
 
 ## Github Pages와 jekyll
 
@@ -27,7 +27,7 @@ Github Pages와 Jekyll을 통한 정적 블로깅은 아래와 같은 장점을 
 
 현재 [카카오](https://github.com/kakao/kakao.github.io), [우아한 형제들](http://woowabros.github.io/), [스포카](https://spoqa.github.io/) 등의 기업들이 jekyll을 이용하여 기술 블로그를 운영하고 있다. 
 
-
+#
 
 ## Jekyll 설치를 위한 환경 만들기
 
@@ -35,19 +35,23 @@ Github Pages와 Jekyll을 통한 정적 블로깅은 아래와 같은 장점을 
 - 'Github에 가입이 되어 있으며 repository를 create, clone을 할 수 있다'는 것을 전제로 합니다. Github 사용법은 [여기](https://milooy.wordpress.com/2017/06/21/working-together-with-github-tutorial/)를 참고하세요.
 - 터미널은 [GitBash](https://gitforwindows.org/) 를 사용하는 것을 전제로 합니다. 
 
-#### 1. Ruby 설치하기
+#
+
+**1. Ruby 설치하기**
 
 Jekyll은 Ruby로 만들어다. Mac과 달리 Window는 Ruby를 내장하지 않고 있기 때문에 설치가 필요하다. https://rubyinstaller.org/downloads/ 에서 맞는 버전을 설치한다. 
 
-#### 2. Atom 설치하기
+**2. Atom 설치하기**
 
 Jekyll의 설정파일이나 HTML 파일을 편집하는 용도로 사용합니다. **https://atom.io/** 에서 설치가 가능하다. 
 
-#### 3. Github 계정에 Repository 만들기
+**3. Github 계정에 Repository 만들기**
 
 Repository name이 `username.github.io` 인 Repository를 생성해 로컬 PC에 clone 한다. 
 
+#
 
+#
 
 ## Jekyll로 블로그 만들기
 
@@ -61,7 +65,7 @@ $ gem install jekyll bundler
 
 ![설치 성공]({{"/assets/gem_install.png" | absolute_url}})
 
-
+#
 
 #### 2. 로컬(내 PC)에 Jekyll로 새 블로그 생성
 
@@ -71,7 +75,7 @@ $ jekyll new {my-awesome-site}
 
 위 코드는 Jekyll에게 `my-awsome-site`라는 이름의 새 Blog를 만들어달라는 명령이다. 
 
-
+#
 
 #### 3. 로컬에서 서버 구동하여 생성된 블로그 확인
 
@@ -82,7 +86,7 @@ $ bundle exec jekyll serve
 
 `cd my-awesome-site ` 명령어는 '`my-awesome-site`디렉토리로 이동하라'는 뜻이며 `bundle exec jekyll serve`는 'jekyll 서버를 구동한다'는 의미다. 이 명령어를 실행한 후 `http://127.0.0.1:4000/ `를 브라우저 주소창에 입력하면 새로운 블로그를 볼 수 있다. 서버 구동을 종료하려면 `Ctrl-c`를 누르면 된다. 
 
-
+#
 
 #### 4. Github Pages로 Publishing
 
@@ -92,8 +96,6 @@ $ bundle exec jekyll serve
 
 ![설치 성공](C:\jy617lee.github.io\assets\_config.png)
 
-
-
 title, email, description 등의 항목을 내 정보로 수정한다. 
 
 ~~~
@@ -101,6 +103,8 @@ title, email, description 등의 항목을 내 정보로 수정한다.
 ~~~
 
  위의 명령어로 서버를 다시 한 번 구동해 제대로 수정되었는지 확인한다. 
+
+#
 
 **2) Publishing**
 
