@@ -6,7 +6,7 @@ author: "jeeyun"
 
 
 
-## 정적 페이지(Static Page) 와 블로그
+## 정적 페이지(Static Page)란?
 
 우리가 접하는 대부분의 웹페이지는 동적 페이지(Dynamic Page)다. 동적 페이지란 포털에서 뉴스 헤드라인을 서택하면 서버에서 해당 뉴스 기사를 받아와 뉴스 페이지를 띄워주는 것 처럼 사용자의 요청에 따라 동적으로 변하는 웹 페이지를 뜻한다.
 
@@ -39,11 +39,11 @@ Github Pages와 Jekyll을 통한 정적 블로깅은 아래와 같은 장점을 
 
 **1. Ruby 설치하기**
 
-Jekyll은 Ruby로 만들어다. Mac과 달리 Window는 Ruby를 내장하지 않고 있기 때문에 설치가 필요하다. https://rubyinstaller.org/downloads/ 에서 맞는 버전을 설치한다. 
+Jekyll은 Ruby로 만들어다. Mac과 달리 Window는 Ruby를 내장하지 않고 있기 때문에 설치가 필요하다. [https://rubyinstaller.org/downloads/](https://rubyinstaller.org/downloads/) 에서 맞는 버전을 설치한다. 
 
 **2. Atom 설치하기**
 
-Jekyll의 설정파일이나 HTML 파일을 편집하는 용도로 사용합니다. **https://atom.io/** 에서 설치가 가능하다. 
+Jekyll의 설정파일이나 HTML 파일을 편집하는 용도로 사용합니다. [https://atom.io/](https://atom.io/) 에서 설치가 가능하다. 
 
 **3. Github 계정에 Repository 만들기**
 
@@ -82,7 +82,7 @@ $ cd {my-awesome-site}
 $ bundle exec jekyll serve
 ~~~
 
-`cd my-awesome-site ` 명령어는 '`my-awesome-site`디렉토리로 이동하라'는 뜻이며 `bundle exec jekyll serve`는 'jekyll 서버를 구동한다'는 의미다. 이 명령어를 실행한 후 `http://127.0.0.1:4000/ `를 브라우저 주소창에 입력하면 새로운 블로그를 볼 수 있다. 서버 구동을 종료하려면 `Ctrl-c`를 누르면 된다. 
+`cd my-awesome-site ` 명령어는 '`my-awesome-site`디렉토리로 이동하라'는 뜻이며 `bundle exec jekyll serve`는 'jekyll 서버를 구동한다'는 의미다. `jekyll serve`만 입력해도 동일한 동작을 수행한다. 이 명령어를 실행한 후 `http://127.0.0.1:4000/ `를 브라우저 주소창에 입력하면 새로운 블로그를 볼 수 있다. 서버 구동을 종료하려면 `Ctrl-c`를 누르면 된다. 
 
 <br/> 
 
@@ -94,7 +94,7 @@ $ bundle exec jekyll serve
 
 ![config.yml]({{"/assets/config.png" | absolute_url}})
 
-title, email, description 등의 항목을 내 정보로 수정한다. 
+title, email, description 등의 항목을 나의 정보에 맞도록 수정한다. 
 
 ~~~
 $ bundle exec jekyll serve
