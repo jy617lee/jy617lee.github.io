@@ -15,6 +15,12 @@
       display:flex; align-items:center; justify-content:center; padding:24px; line-height:1.6;
     }
     .card { width:100%; max-width:560px; }
+    .lang-toggle { display:flex; justify-content:flex-end; gap:4px; margin-bottom:18px; }
+    .lang-toggle button {
+      border:1px solid #E4DED4; background:transparent; color:var(--muted);
+      padding:5px 12px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer;
+    }
+    .lang-toggle button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
     .app { display:flex; align-items:center; gap:14px; margin-bottom:28px; }
     .badge {
       width:56px; height:56px; border-radius:14px; background:var(--accent);
@@ -37,26 +43,77 @@
 </head>
 <body>
   <main class="card">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="ko">한국어</button>
+      <button type="button" data-lang="en">English</button>
+    </div>
+
     <div class="app">
       <div class="badge">+</div>
       <div>
         <h1>The Shift</h1>
-        <p class="tagline">교대근무 스케줄 위젯</p>
+        <p class="tagline" data-i18n="tagline">교대근무 스케줄 위젯</p>
       </div>
     </div>
 
-    <p>
+    <p data-i18n="body">
       사내 스케줄 화면을 <strong>스크린샷 한 장</strong>으로 등록하면,
       홈 화면과 잠금화면 <strong>위젯</strong>에서 오늘의 출·퇴근 시간을 바로 확인할 수 있어요.
       주간 미리보기, 근무 카운트다운, 캘린더 자동 추가까지 지원합니다.
     </p>
 
-    <a class="cta" href="https://apps.apple.com/kr/app/the-shift/id6782529001">App Store에서 다운로드</a>
+    <a class="cta" href="https://apps.apple.com/kr/app/the-shift/id6782529001" data-i18n="cta">App Store에서 다운로드</a>
 
     <div class="meta">
+      <div class="row"><a href="/support.html" data-i18n="support">지원 · 문의</a></div>
       <div class="row">Jeeyun Lee</div>
       <div class="row"><a href="mailto:jy617.lee@gmail.com">jy617.lee@gmail.com</a></div>
     </div>
   </main>
+
+  <script>
+    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억.
+    var STRINGS = {
+      ko: {
+        title: "The Shift — 교대근무 스케줄 위젯",
+        tagline: "교대근무 스케줄 위젯",
+        body: "사내 스케줄 화면을 <strong>스크린샷 한 장</strong>으로 등록하면, 홈 화면과 잠금화면 <strong>위젯</strong>에서 오늘의 출·퇴근 시간을 바로 확인할 수 있어요. 주간 미리보기, 근무 카운트다운, 캘린더 자동 추가까지 지원합니다.",
+        cta: "App Store에서 다운로드",
+        support: "지원 · 문의"
+      },
+      en: {
+        title: "The Shift — Shift Work Schedule Widget",
+        tagline: "Shift work schedule widget",
+        body: "Add your work schedule with <strong>a single screenshot</strong> and see today's shift right on your <strong>home and lock screen widgets</strong>. Weekly preview, shift countdown, and automatic calendar sync included.",
+        cta: "Download on the App Store",
+        support: "Support"
+      }
+    };
+    function applyLang(lang) {
+      var t = STRINGS[lang] || STRINGS.ko;
+      document.documentElement.lang = lang;
+      document.title = t.title;
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        if (t[key]) { el.innerHTML = t[key]; }
+      });
+      document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("shift-lang", lang); } catch (e) {}
+    }
+    function initialLang() {
+      try {
+        var saved = localStorage.getItem("shift-lang");
+        if (saved === "ko" || saved === "en") { return saved; }
+      } catch (e) {}
+      var nav = (navigator.language || "en").toLowerCase();
+      return nav.indexOf("ko") === 0 ? "ko" : "en";
+    }
+    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+      btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
+    });
+    applyLang(initialLang());
+  </script>
 </body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Shift — 지원</title>
+  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="The Shift 지원 페이지 — 자주 묻는 질문과 문의 방법. The Shift support — FAQ and contact.">
+  <style>
+    :root { --cream:#F7F4EF; --ink:#1C1B1F; --muted:#7A7065; --accent:#00704A; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; background:var(--cream); color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+      display:flex; justify-content:center; padding:40px 24px; line-height:1.7;
+    }
+    .card { width:100%; max-width:640px; }
+    .top { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .back { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; }
+    .back:hover { text-decoration:underline; }
+    .lang-toggle { display:flex; gap:4px; }
+    .lang-toggle button {
+      border:1px solid #E4DED4; background:transparent; color:var(--muted);
+      padding:5px 12px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer;
+    }
+    .lang-toggle button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .app { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+    .badge {
+      width:44px; height:44px; border-radius:12px; background:var(--accent);
+      display:flex; align-items:center; justify-content:center; color:#fff;
+      font-size:24px; font-weight:700; flex:0 0 auto;
+    }
+    h1 { font-size:22px; margin:0; }
+    .subtitle { color:var(--muted); font-size:14px; margin:0 0 28px 56px; }
+    h2 { font-size:16px; margin:28px 0 8px; }
+    p, li { font-size:15px; }
+    details {
+      background:#fff; border:1px solid #E4DED4; border-radius:14px;
+      padding:14px 18px; margin:10px 0;
+    }
+    summary { font-weight:600; font-size:15px; cursor:pointer; }
+    details p, details ul { color:#3A362F; margin:10px 0 2px; }
+    .contact {
+      margin-top:32px; padding:18px; border-radius:14px; background:#fff; border:1px solid #E4DED4;
+    }
+    .contact a { color:var(--accent); text-decoration:none; font-weight:600; }
+    .contact a:hover { text-decoration:underline; }
+    .foot { margin-top:28px; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="top">
+      <a class="back" href="/" data-i18n="back">← The Shift</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="ko">한국어</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="badge">+</div>
+      <h1 data-i18n="title">지원</h1>
+    </div>
+    <p class="subtitle" data-i18n="subtitle">The Shift 자주 묻는 질문과 문의</p>
+
+    <h2 data-i18n="faqHeading">자주 묻는 질문</h2>
+    <div id="faq"></div>
+
+    <div class="contact">
+      <p data-i18n="contactBody">
+        해결되지 않는 문제나 제안이 있으면 이메일로 보내주세요. 스케줄 인식 문제는
+        <strong>어떤 앱의 스케줄 화면인지</strong>를 함께 알려주시면 빠르게 도와드릴 수 있어요.
+      </p>
+      <a href="mailto:jy617.lee@gmail.com?subject=[The Shift] Support">jy617.lee@gmail.com</a>
+    </div>
+
+    <p class="foot" data-i18n="foot">개인정보: 모든 스케줄 데이터는 기기에만 저장되며, 선택한 이미지는 인식 즉시 메모리에서 삭제됩니다.</p>
+  </main>
+
+  <script>
+    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억 (index.html과 동일 키 공유).
+    var STRINGS = {
+      ko: {
+        htmlTitle: "The Shift — 지원",
+        back: "← The Shift",
+        title: "지원",
+        subtitle: "The Shift 자주 묻는 질문과 문의",
+        faqHeading: "자주 묻는 질문",
+        contactBody: "해결되지 않는 문제나 제안이 있으면 이메일로 보내주세요. 스케줄 인식 문제는 <strong>어떤 앱의 스케줄 화면인지</strong>를 함께 알려주시면 빠르게 도와드릴 수 있어요.",
+        foot: "개인정보: 모든 스케줄 데이터는 기기에만 저장되며, 선택한 이미지는 인식 즉시 메모리에서 삭제됩니다.",
+        faq: [
+          {
+            q: "스케줄이 인식되지 않아요 (지원하지 않는 이미지)",
+            a: "<p>주간 스케줄 표 전체가 잘 보이는 스크린샷이어야 해요. 현재 지원하는 형식:</p><ul><li>한국 근무표 — 날짜·출퇴근 시간·근태코드가 있는 주간 표</li><li>미국 스타벅스(Teamworks) — 주간 리스트 화면 (월간 캘린더 화면은 아직 지원하지 않아요)</li></ul><p>표가 흐리거나 일부만 찍힌 경우 인식이 어려울 수 있어요. 다른 형식 지원이 필요하면 스케줄 화면 종류를 이메일로 알려주세요.</p>"
+          },
+          {
+            q: "위젯은 어떻게 추가하나요?",
+            a: "<p><strong>홈 화면</strong>: 빈 곳을 길게 누르기 → 왼쪽 위 + 버튼 → The Shift 검색 → 원하는 크기 추가.</p><p><strong>잠금화면</strong>: 잠금화면 길게 누르기 → 사용자화 → 잠금 화면 → 위젯 영역 탭 → The Shift 선택. 오늘 근무·주간·카운트다운 3종을 지원해요.</p>"
+          },
+          {
+            q: "캘린더에 자동으로 추가하고 싶어요",
+            a: "<p>홈 상단의 캘린더 아이콘을 누르면 저장된 스케줄이 기기 캘린더에 등록되고, 이후 저장하는 스케줄은 자동으로 추가돼요. 설정 → 캘린더 자동 추가에서 언제든 켜고 끌 수 있어요. 캘린더 접근 권한이 필요해요.</p>"
+          },
+          {
+            q: "프리미엄(평생 패스)에는 뭐가 포함되나요?",
+            a: "<p>광고 제거, 모든 위젯, 캘린더 자동 추가를 평생 이용할 수 있어요. 구매 대신 동영상 광고 하나를 보고 한 달 동안 같은 기능을 쓸 수도 있어요.</p>"
+          },
+          {
+            q: "구매 복원은 어떻게 하나요?",
+            a: "<p>설정 → 프리미엄 → 구매 복원을 누르면 같은 Apple 계정의 구매 내역이 복원돼요. 복원이 안 되면 App Store 로그인 계정이 구매 당시 계정과 같은지 확인해 주세요.</p>"
+          },
+          {
+            q: "제 데이터는 어디에 저장되나요?",
+            a: "<p>모든 스케줄 데이터는 이 기기에만 저장돼요. 서버로 전송되지 않고, 계정도 필요 없어요. 앱을 삭제하거나 기기를 변경하면 데이터를 복구할 수 없으니 주의해 주세요. 스케줄 인식에 사용한 이미지는 인식이 끝나는 즉시 삭제돼요.</p>"
+          }
+        ]
+      },
+      en: {
+        htmlTitle: "The Shift — Support",
+        back: "← The Shift",
+        title: "Support",
+        subtitle: "The Shift — frequently asked questions & contact",
+        faqHeading: "Frequently Asked Questions",
+        contactBody: "Still stuck, or have a suggestion? Email us. For schedule recognition issues, telling us <strong>which app your schedule screen comes from</strong> helps us help you faster.",
+        foot: "Privacy: all schedule data stays on your device only, and selected images are discarded from memory as soon as recognition finishes.",
+        faq: [
+          {
+            q: "My schedule isn't recognized (unsupported image)",
+            a: "<p>Use a screenshot that clearly shows the full weekly schedule table. Currently supported formats:</p><ul><li>Korean work schedule tables — weekly tables with dates, start/end times, and shift codes</li><li>Starbucks (Teamworks, US) — the weekly list view (the monthly calendar view isn't supported yet)</li></ul><p>Blurry or partially cropped tables may fail. Need another format supported? Email us with the name of your scheduling app.</p>"
+          },
+          {
+            q: "How do I add the widgets?",
+            a: "<p><strong>Home Screen</strong>: long-press an empty area → tap + at the top left → search for The Shift → add the size you like.</p><p><strong>Lock Screen</strong>: long-press the Lock Screen → Customize → Lock Screen → tap the widget area → choose The Shift. Today's shift, weekly, and countdown widgets are available.</p>"
+          },
+          {
+            q: "How do I sync schedules to my calendar?",
+            a: "<p>Tap the calendar icon at the top of the home screen — your saved schedule is added to your device calendar, and future schedules are added automatically. You can toggle this anytime in Settings → Auto-add to Calendar. Calendar permission is required.</p>"
+          },
+          {
+            q: "What's included in Premium (Lifetime Pass)?",
+            a: "<p>Ad-free, all widgets, and automatic calendar sync — forever. Or watch a short video to unlock the same features for a month instead of purchasing.</p>"
+          },
+          {
+            q: "How do I restore my purchase?",
+            a: "<p>Go to Settings → Premium → Restore Purchases. If nothing is restored, make sure you're signed in to the App Store with the same Apple account you purchased with.</p>"
+          },
+          {
+            q: "Where is my data stored?",
+            a: "<p>All schedule data stays on this device only. Nothing is sent to a server, and no account is needed. If you delete the app or switch devices, the data cannot be recovered. Images used for recognition are discarded as soon as recognition finishes.</p>"
+          }
+        ]
+      }
+    };
+    function renderFaq(items) {
+      var container = document.getElementById("faq");
+      container.innerHTML = "";
+      items.forEach(function (item) {
+        var d = document.createElement("details");
+        var s = document.createElement("summary");
+        s.textContent = item.q;
+        d.appendChild(s);
+        var body = document.createElement("div");
+        body.innerHTML = item.a;
+        d.appendChild(body);
+        container.appendChild(d);
+      });
+    }
+    function applyLang(lang) {
+      var t = STRINGS[lang] || STRINGS.ko;
+      document.documentElement.lang = lang;
+      document.title = t.htmlTitle;
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        if (t[key]) { el.innerHTML = t[key]; }
+      });
+      renderFaq(t.faq);
+      document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("shift-lang", lang); } catch (e) {}
+    }
+    function initialLang() {
+      try {
+        var saved = localStorage.getItem("shift-lang");
+        if (saved === "ko" || saved === "en") { return saved; }
+      } catch (e) {}
+      var nav = (navigator.language || "en").toLowerCase();
+      return nav.indexOf("ko") === 0 ? "ko" : "en";
+    }
+    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+      btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
+    });
+    applyLang(initialLang());
+  </script>
+</body>
+</html>
