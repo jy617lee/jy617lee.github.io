@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Shift — 개인정보처리방침</title>
+  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="The Shift 개인정보처리방침. The Shift privacy policy.">
+  <style>
+    :root { --cream:#F7F4EF; --ink:#1C1B1F; --muted:#7A7065; --accent:#00704A; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; background:var(--cream); color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+      display:flex; justify-content:center; padding:40px 24px; line-height:1.7;
+    }
+    .card { width:100%; max-width:640px; }
+    .top { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .back { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; }
+    .back:hover { text-decoration:underline; }
+    .lang-toggle { display:flex; gap:4px; }
+    .lang-toggle button {
+      border:1px solid #E4DED4; background:transparent; color:var(--muted);
+      padding:5px 12px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer;
+    }
+    .lang-toggle button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    h1 { font-size:22px; margin:0 0 4px; }
+    .updated { color:var(--muted); font-size:13px; margin:0 0 28px; }
+    section {
+      background:#fff; border:1px solid #E4DED4; border-radius:14px;
+      padding:16px 18px; margin:12px 0;
+    }
+    h2 { font-size:15px; margin:0 0 8px; }
+    p, li { font-size:14px; margin:8px 0; color:#3A362F; }
+    ul { padding-left:18px; margin:8px 0; }
+    a { color:var(--accent); }
+    .contact { margin-top:24px; font-size:14px; }
+    .contact a { font-weight:600; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="top">
+      <a class="back" href="/support.html" data-i18n="back">← 지원</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="ko">한국어</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </div>
+
+    <h1 data-i18n="title">개인정보처리방침</h1>
+    <p class="updated" data-i18n="updated">시행일: 2026년 7월 15일 · The Shift (Jeeyun Lee)</p>
+
+    <div id="sections"></div>
+
+    <p class="contact">
+      <span data-i18n="contactLead">문의:</span>
+      <a href="mailto:jy617.lee@gmail.com">jy617.lee@gmail.com</a>
+    </p>
+  </main>
+
+  <script>
+    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage(shift-lang) 공유.
+    var STRINGS = {
+      ko: {
+        htmlTitle: "The Shift — 개인정보처리방침",
+        back: "← 지원",
+        title: "개인정보처리방침",
+        updated: "시행일: 2026년 7월 15일 · The Shift (Jeeyun Lee)",
+        contactLead: "문의:",
+        sections: [
+          { h: "요약", b: "<p>The Shift는 <strong>계정 없이, 서버 없이</strong> 동작합니다. 스케줄 데이터는 회원가입 없이 사용자의 기기에만 저장되며, 이름·이메일·사번·위치 등 개인 식별 정보를 수집하지 않습니다.</p>" },
+          { h: "기기에만 저장되는 정보", b: "<p>등록한 근무 스케줄과 앱 설정은 기기 내부에만 저장됩니다. 외부 서버로 전송되지 않으며, 앱을 삭제하면 함께 삭제되고 복구할 수 없습니다.</p>" },
+          { h: "스케줄 이미지", b: "<p>스케줄 인식을 위해 선택한 이미지는 <strong>기기 안에서만</strong> 처리되며, 인식이 끝나는 즉시 메모리에서 삭제됩니다. 이미지를 저장하거나 외부로 전송하지 않습니다. 사진 보관함은 시스템 선택기(PhotosPicker)를 통해 사용자가 고른 이미지에만 접근합니다.</p>" },
+          { h: "앱 사용 통계 (Google Firebase)", b: "<p>앱 개선을 위해 화면 조회·기능 사용 같은 익명 사용 통계를 수집합니다. 식별자는 기기에서 생성된 무작위 UUID이며 개인을 특정할 수 없습니다. 스케줄 원문·이미지·개인 식별 정보는 분석 데이터에 포함되지 않습니다. 자세한 내용은 <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Google 개인정보처리방침</a>을 참고하세요.</p>" },
+          { h: "광고 (Google AdMob)", b: "<p>무료 이용 시 광고가 표시됩니다. iOS의 앱 추적 투명성(ATT) 프롬프트에서 허용한 경우에만 광고 식별자(IDFA)가 맞춤 광고에 사용될 수 있으며, 거부하면 일반 광고가 표시됩니다. 자세한 내용은 <a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>Google 광고 정책</a>을 참고하세요.</p>" },
+          { h: "권한", b: "<ul><li><strong>캘린더</strong>: 캘린더 연동을 켠 경우, 스케줄을 기기 캘린더에 추가하는 목적으로만 사용합니다.</li><li><strong>사진</strong>: 시스템 선택기로 사용자가 고른 이미지에만 접근합니다.</li></ul>" },
+          { h: "결제", b: "<p>Pro 구매는 Apple App Store를 통해 처리되며, 앱은 결제 수단 정보에 접근하지 않습니다.</p>" },
+          { h: "변경 고지", b: "<p>이 방침이 변경되면 이 페이지에 갱신 일자와 함께 게시합니다.</p>" }
+        ]
+      },
+      en: {
+        htmlTitle: "The Shift — Privacy Policy",
+        back: "← Support",
+        title: "Privacy Policy",
+        updated: "Effective: July 15, 2026 · The Shift (Jeeyun Lee)",
+        contactLead: "Contact:",
+        sections: [
+          { h: "Summary", b: "<p>The Shift works <strong>without accounts and without servers</strong>. Your schedule data stays on your device, and we do not collect personally identifiable information such as your name, email, employee ID, or location.</p>" },
+          { h: "Data stored on your device only", b: "<p>Your work schedules and app settings are stored only on your device. They are never sent to an external server, and they are deleted with the app and cannot be recovered.</p>" },
+          { h: "Schedule images", b: "<p>Images you select for schedule recognition are processed <strong>entirely on your device</strong> and discarded from memory as soon as recognition finishes. Images are never saved or transmitted. The app accesses only the photos you pick through the system photo picker.</p>" },
+          { h: "Usage analytics (Google Firebase)", b: "<p>To improve the app, we collect anonymous usage statistics such as screen views and feature usage. The identifier is a random UUID generated on your device and cannot identify you personally. Schedule contents, images, and personal information are never included. See the <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Google Privacy Policy</a> for details.</p>" },
+          { h: "Advertising (Google AdMob)", b: "<p>Ads are shown to free users. The advertising identifier (IDFA) is used for personalized ads only if you allow it in the iOS App Tracking Transparency prompt; otherwise non-personalized ads are shown. See <a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>how Google uses ad data</a>.</p>" },
+          { h: "Permissions", b: "<ul><li><strong>Calendar</strong>: used only to add your schedule to your device calendar when calendar export is enabled.</li><li><strong>Photos</strong>: only the images you pick through the system picker are accessed.</li></ul>" },
+          { h: "Payments", b: "<p>Pro purchases are processed by the Apple App Store. The app never accesses your payment details.</p>" },
+          { h: "Changes", b: "<p>If this policy changes, the update will be posted on this page with a new effective date.</p>" }
+        ]
+      }
+    };
+    function renderSections(items) {
+      var container = document.getElementById("sections");
+      container.innerHTML = "";
+      items.forEach(function (item) {
+        var sec = document.createElement("section");
+        var h = document.createElement("h2");
+        h.textContent = item.h;
+        sec.appendChild(h);
+        var body = document.createElement("div");
+        body.innerHTML = item.b;
+        sec.appendChild(body);
+        container.appendChild(sec);
+      });
+    }
+    function applyLang(lang) {
+      var t = STRINGS[lang] || STRINGS.ko;
+      document.documentElement.lang = lang;
+      document.title = t.htmlTitle;
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        if (t[key]) { el.innerHTML = t[key]; }
+      });
+      renderSections(t.sections);
+      document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("shift-lang", lang); } catch (e) {}
+    }
+    function initialLang() {
+      try {
+        var saved = localStorage.getItem("shift-lang");
+        if (saved === "ko" || saved === "en") { return saved; }
+      } catch (e) {}
+      var nav = (navigator.language || "en").toLowerCase();
+      return nav.indexOf("ko") === 0 ? "ko" : "en";
+    }
+    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+      btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
+    });
+    applyLang(initialLang());
+  </script>
+</body>
+</html>
