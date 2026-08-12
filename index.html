@@ -12,9 +12,12 @@
     body {
       margin:0; min-height:100vh; background:var(--cream); color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
-      display:flex; align-items:center; justify-content:center; padding:24px; line-height:1.6;
+      display:flex; flex-direction:column; align-items:center; padding:24px; line-height:1.6;
     }
-    .card { width:100%; max-width:560px; }
+    /* 일본어: 어절 단위 줄바꿈(지원 브라우저) + 금칙 처리, 문단 고아 글자 방지 */
+    :lang(ja) { word-break:auto-phrase; line-break:strict; }
+    p { text-wrap:pretty; }
+    .card { width:100%; max-width:560px; margin:auto 0; }
     .lang-toggle { display:flex; justify-content:flex-end; gap:4px; margin-bottom:18px; }
     .lang-toggle button {
       border:1px solid #E4DED4; background:transparent; color:var(--muted);
@@ -30,16 +33,16 @@
     h1 { font-size:24px; margin:0; }
     .tagline { color:var(--muted); margin:2px 0 0; font-size:14px; }
     p { font-size:15px; }
-    .store-badges { display:flex; flex-direction:column; gap:10px; margin:18px 0 6px; max-width:320px; }
+    .store-badges { display:flex; flex-direction:column; gap:10px; margin:18px auto 6px; max-width:320px; }
     .store-badge {
-      display:flex; align-items:center; gap:14px; padding:12px 18px; border-radius:14px;
+      display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:16px;
       border:1px solid #D8D1C5; background:#fff; color:var(--ink); text-decoration:none;
     }
     .store-badge:hover { border-color:var(--accent); }
-    .store-icon { width:26px; height:26px; flex:0 0 auto; }
+    .store-icon { width:30px; height:30px; flex:0 0 auto; }
     .store-eyebrow { display:block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
     .store-name { display:block; font-size:18px; font-weight:700; line-height:1.25; }
-    .meta { margin-top:32px; padding-top:20px; border-top:1px solid #E4DED4; color:var(--muted); font-size:14px; }
+    .meta { width:100%; max-width:560px; margin-top:32px; padding-top:20px; border-top:1px solid #E4DED4; color:var(--muted); font-size:14px; }
     .meta a { color:var(--accent); text-decoration:none; }
     .meta a:hover { text-decoration:underline; }
     .row { margin:4px 0; }
@@ -70,21 +73,22 @@
     <div class="store-badges">
       <a class="store-badge" id="cta-ios" href="https://apps.apple.com/kr/app/the-shift/id6782529001">
         <svg class="store-icon" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-        <span><span class="store-eyebrow">Download on the</span><span class="store-name">App Store</span></span>
+        <span><span class="store-eyebrow" data-i18n="badgeIos">Download on the</span><span class="store-name">App Store</span></span>
       </a>
       <a class="store-badge" id="cta-android" href="https://play.google.com/store/apps/details?id=com.schedule.shift&hl=ko">
-        <svg class="store-icon" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256.6L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-        <span><span class="store-eyebrow">Get it on</span><span class="store-name">Google Play</span></span>
+        <svg class="store-icon" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M6 3 L26 24 L6 45 Z"/><path fill="#34A853" d="M6 3 L31.9 18.1 L26 24 Z"/><path fill="#FBBC04" d="M31.9 18.1 L42 24 L31.9 29.9 L26 24 Z"/><path fill="#EA4335" d="M26 24 L31.9 29.9 L6 45 Z"/></svg>
+        <span><span class="store-eyebrow" data-i18n="badgeAndroid">Get it on</span><span class="store-name">Google Play</span></span>
       </a>
     </div>
 
-    <div class="meta">
-      <div class="row"><a href="/support.html" data-i18n="support">지원 · 문의</a></div>
-      <div class="row"><a href="/privacy-policy.html" data-i18n="privacy">개인정보처리방침</a></div>
-      <div class="row">Jeeyun Lee</div>
-      <div class="row"><a href="mailto:jy617.lee@gmail.com">jy617.lee@gmail.com</a></div>
-    </div>
   </main>
+
+  <footer class="meta">
+    <div class="row"><a href="/support.html" data-i18n="support">지원 · 문의</a></div>
+    <div class="row"><a href="/privacy-policy.html" data-i18n="privacy">개인정보처리방침</a></div>
+    <div class="row">Jeeyun Lee</div>
+    <div class="row"><a href="mailto:jy617.lee@gmail.com">jy617.lee@gmail.com</a></div>
+  </footer>
 
   <script>
     // 국문/영문/일문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억.
@@ -93,6 +97,8 @@
         title: "The Shift — 교대근무 스케줄 위젯",
         tagline: "교대근무 스케줄 위젯",
         body: "사내 스케줄 화면을 <strong>스크린샷 한 장</strong>으로 등록하면, 홈 화면과 잠금화면 <strong>위젯</strong>에서 오늘의 출·퇴근 시간을 바로 확인할 수 있어요. 주간 미리보기, 근무 카운트다운, 캘린더 자동 추가까지 지원합니다.",
+        badgeIos: "다운로드하기",
+        badgeAndroid: "다운로드하기",
         ctaIosHref: "https://apps.apple.com/kr/app/the-shift/id6782529001",
         ctaAndroidHref: "https://play.google.com/store/apps/details?id=com.schedule.shift&hl=ko",
         support: "지원 · 문의",
@@ -102,6 +108,8 @@
         title: "The Shift — Shift Work Schedule Widget",
         tagline: "Shift work schedule widget",
         body: "Add your work schedule with <strong>a single screenshot</strong> and see today's shift right on your <strong>home and lock screen widgets</strong>. Weekly preview, shift countdown, and automatic calendar sync included.",
+        badgeIos: "Download on the",
+        badgeAndroid: "Get it on",
         ctaIosHref: "https://apps.apple.com/us/app/the-shift/id6782529001",
         ctaAndroidHref: "https://play.google.com/store/apps/details?id=com.schedule.shift&hl=en",
         support: "Support",
@@ -111,6 +119,8 @@
         title: "The Shift — シフト勤務スケジュールウィジェット",
         tagline: "シフト勤務のスケジュールウィジェット",
         body: "職場のスケジュール画面を<strong>スクリーンショット1枚</strong>で登録すると、ホーム画面とロック画面の<strong>ウィジェット</strong>で今日の出勤・退勤時間をすぐ確認できます。週間プレビュー、勤務カウントダウン、カレンダー自動追加にも対応しています。",
+        badgeIos: "アプリをダウンロード",
+        badgeAndroid: "アプリをダウンロード",
         ctaIosHref: "https://apps.apple.com/jp/app/the-shift/id6782529001",
         ctaAndroidHref: "https://play.google.com/store/apps/details?id=com.schedule.shift&hl=ja",
         support: "サポート・お問い合わせ",
