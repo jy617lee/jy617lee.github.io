@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Shift — 개인정보처리방침</title>
   <link rel="icon" href="/favicon.ico">
-  <meta name="description" content="The Shift 개인정보처리방침. The Shift privacy policy.">
+  <meta name="description" content="The Shift 개인정보처리방침. The Shift privacy policy. The Shiftプライバシーポリシー。">
   <style>
     :root { --cream:#F7F4EF; --ink:#1C1B1F; --muted:#7A7065; --accent:#00704A; }
     * { box-sizing:border-box; }
@@ -45,6 +45,7 @@
       <div class="lang-toggle" role="group" aria-label="Language">
         <button type="button" data-lang="ko">한국어</button>
         <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="ja">日本語</button>
       </div>
     </div>
 
@@ -60,7 +61,7 @@
   </main>
 
   <script>
-    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage(shift-lang) 공유.
+    // 국문/영문/일문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage(shift-lang) 공유.
     var STRINGS = {
       ko: {
         htmlTitle: "The Shift — 개인정보처리방침",
@@ -95,6 +96,23 @@
           { h: "Payments", b: "<p>Pro purchases are processed by the Apple App Store. The app never accesses your payment details.</p>" },
           { h: "Changes", b: "<p>If this policy changes, the update will be posted on this page with a new effective date.</p>" }
         ]
+      },
+      ja: {
+        htmlTitle: "The Shift — プライバシーポリシー",
+        back: "← The Shift",
+        title: "プライバシーポリシー",
+        updated: "施行日: 2026年7月15日 · The Shift (Jeeyun Lee)",
+        contactLead: "お問い合わせ:",
+        sections: [
+          { h: "概要", b: "<p>The Shiftは<strong>アカウントなし・サーバーなし</strong>で動作します。スケジュールデータは会員登録なしで利用者の端末にのみ保存され、氏名・メールアドレス・社員番号・位置情報などの個人を特定できる情報は収集しません。</p>" },
+          { h: "端末にのみ保存される情報", b: "<p>登録した勤務スケジュールとアプリの設定は、端末内にのみ保存されます。外部サーバーには送信されず、アプリを削除すると一緒に削除され、復元できません。</p>" },
+          { h: "スケジュール画像", b: "<p>スケジュール認識のために選択した画像は<strong>端末内でのみ</strong>処理され、認識が終わり次第メモリから削除されます。画像を保存したり、外部に送信することはありません。写真ライブラリへは、システムの選択画面（PhotosPicker）で利用者が選んだ画像にのみアクセスします。</p>" },
+          { h: "利用統計（Google Firebase）", b: "<p>アプリ改善のため、画面表示や機能の利用状況といった匿名の利用統計を収集します。識別子は端末で生成されたランダムなUUIDで、個人を特定することはできません。スケジュールの内容・画像・個人情報が分析データに含まれることはありません。詳細は<a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Googleプライバシーポリシー</a>をご覧ください。</p>" },
+          { h: "広告（Google AdMob）", b: "<p>無料でご利用の場合、広告が表示されます。iOSのアプリのトラッキングの透明性（ATT）プロンプトで許可した場合にのみ、広告識別子（IDFA）がパーソナライズド広告に使用されることがあります。許可しない場合は、一般的な広告が表示されます。詳細は<a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>Google広告ポリシー</a>をご覧ください。</p>" },
+          { h: "権限", b: "<ul><li><strong>カレンダー</strong>: カレンダー連携をオンにした場合、スケジュールを端末のカレンダーに追加する目的でのみ使用します。</li><li><strong>写真</strong>: システムの選択画面で利用者が選んだ画像にのみアクセスします。</li></ul>" },
+          { h: "決済", b: "<p>Proの購入はApple App Storeを通じて処理され、アプリが決済情報にアクセスすることはありません。</p>" },
+          { h: "変更のお知らせ", b: "<p>本ポリシーを変更した場合は、更新日とあわせて本ページに掲載します。</p>" }
+        ]
       }
     };
     function renderSections(items) {
@@ -128,10 +146,12 @@
     function initialLang() {
       try {
         var saved = localStorage.getItem("shift-lang");
-        if (saved === "ko" || saved === "en") { return saved; }
+        if (saved === "ko" || saved === "en" || saved === "ja") { return saved; }
       } catch (e) {}
       var nav = (navigator.language || "en").toLowerCase();
-      return nav.indexOf("ko") === 0 ? "ko" : "en";
+      if (nav.indexOf("ko") === 0) { return "ko"; }
+      if (nav.indexOf("ja") === 0) { return "ja"; }
+      return "en";
     }
     document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
       btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });

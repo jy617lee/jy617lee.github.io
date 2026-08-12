@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Shift — 지원</title>
   <link rel="icon" href="/favicon.ico">
-  <meta name="description" content="The Shift 지원 페이지 — 자주 묻는 질문과 문의 방법. The Shift support — FAQ and contact.">
+  <meta name="description" content="The Shift 지원 페이지 — 자주 묻는 질문과 문의 방법. The Shift support — FAQ and contact. The Shiftサポート — よくある質問とお問い合わせ。">
   <style>
     :root { --cream:#F7F4EF; --ink:#1C1B1F; --muted:#7A7065; --accent:#00704A; }
     * { box-sizing:border-box; }
@@ -55,6 +55,7 @@
       <div class="lang-toggle" role="group" aria-label="Language">
         <button type="button" data-lang="ko">한국어</button>
         <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="ja">日本語</button>
       </div>
     </div>
 
@@ -80,7 +81,7 @@
   </main>
 
   <script>
-    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억 (index.html과 동일 키 공유).
+    // 국문/영문/일문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억 (index.html과 동일 키 공유).
     var STRINGS = {
       ko: {
         htmlTitle: "The Shift — 지원",
@@ -153,6 +154,42 @@
             a: "<p>All schedule data stays on this device only. Nothing is sent to a server, and no account is needed. If you delete the app or switch devices, the data cannot be recovered. Images used for recognition are discarded as soon as recognition finishes.</p>"
           }
         ]
+      },
+      ja: {
+        htmlTitle: "The Shift — サポート",
+        back: "← The Shift",
+        title: "サポート",
+        subtitle: "The Shift よくある質問とお問い合わせ",
+        faqHeading: "よくある質問",
+        contactBody: "解決しない問題やご提案があれば、メールでお知らせください。スケジュール認識の問題は、<strong>どのアプリのスケジュール画面か</strong>を併せてお知らせいただくと、より早く対応できます。",
+        foot: "プライバシー: すべてのスケジュールデータは端末内にのみ保存され、選択した画像は認識が終わり次第メモリから削除されます。",
+        privacyLink: "プライバシーポリシー",
+        faq: [
+          {
+            q: "スケジュールが認識されません（対応していない画像）",
+            a: "<p>週間スケジュール表全体がはっきり写ったスクリーンショットをご使用ください。現在対応している形式:</p><ul><li>韓国の勤務表 — 日付・出退勤時間・勤怠コードのある週間表</li><li>米国スターバックス（Teamworks）— 週間リスト画面（月間カレンダー画面には未対応です）</li></ul><p>表がぼやけていたり一部しか写っていない場合は、認識できないことがあります。他の形式への対応が必要な場合は、お使いのスケジュール画面の種類をメールでお知らせください。</p>"
+          },
+          {
+            q: "ウィジェットはどうやって追加しますか？",
+            a: "<p><strong>ホーム画面</strong>: 空いている場所を長押し → 左上の＋ボタン → The Shiftを検索 → お好みのサイズを追加。</p><p><strong>ロック画面</strong>: ロック画面を長押し → カスタマイズ → ロック画面 → ウィジェット領域をタップ → The Shiftを選択。今日の勤務・週間・カウントダウンの3種類に対応しています。</p>"
+          },
+          {
+            q: "カレンダーに自動で追加したいです",
+            a: "<p>ホーム上部のカレンダーアイコンをタップすると、保存済みのスケジュールが端末のカレンダーに登録され、以降に保存するスケジュールは自動で追加されます。設定 → カレンダー自動追加でいつでもオン・オフできます。カレンダーへのアクセス許可が必要です。</p>"
+          },
+          {
+            q: "Pro（買い切り）には何が含まれますか？",
+            a: "<p>カレンダー連携、すべてのウィジェット、広告非表示をずっとご利用いただけます。購入の代わりに動画広告を1本視聴して、同じ機能を1か月間使うこともできます。</p>"
+          },
+          {
+            q: "購入の復元はどうすればいいですか？",
+            a: "<p>設定 → Pro → 購入を復元をタップすると、同じApple Accountでの購入内容が復元されます。復元されない場合は、App Storeにサインインしているアカウントが購入時のアカウントと同じかご確認ください。</p>"
+          },
+          {
+            q: "データはどこに保存されますか？",
+            a: "<p>すべてのスケジュールデータはこの端末にのみ保存されます。サーバーには送信されず、アカウントも不要です。アプリを削除したり機種変更するとデータは復元できませんので、ご注意ください。スケジュール認識に使用した画像は、認識が終わり次第削除されます。</p>"
+          }
+        ]
       }
     };
     function renderFaq(items) {
@@ -186,10 +223,12 @@
     function initialLang() {
       try {
         var saved = localStorage.getItem("shift-lang");
-        if (saved === "ko" || saved === "en") { return saved; }
+        if (saved === "ko" || saved === "en" || saved === "ja") { return saved; }
       } catch (e) {}
       var nav = (navigator.language || "en").toLowerCase();
-      return nav.indexOf("ko") === 0 ? "ko" : "en";
+      if (nav.indexOf("ko") === 0) { return "ko"; }
+      if (nav.indexOf("ja") === 0) { return "ja"; }
+      return "en";
     }
     document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
       btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });

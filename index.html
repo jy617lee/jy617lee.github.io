@@ -46,6 +46,7 @@
     <div class="lang-toggle" role="group" aria-label="Language">
       <button type="button" data-lang="ko">한국어</button>
       <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="ja">日本語</button>
     </div>
 
     <div class="app">
@@ -73,7 +74,7 @@
   </main>
 
   <script>
-    // 국문/영문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억.
+    // 국문/영문/일문 전환 — 기본은 사용자 브라우저 언어, 선택은 localStorage에 기억.
     var STRINGS = {
       ko: {
         title: "The Shift — 교대근무 스케줄 위젯",
@@ -90,6 +91,14 @@
         cta: "Download on the App Store",
         support: "Support",
         privacy: "Privacy Policy"
+      },
+      ja: {
+        title: "The Shift — シフト勤務スケジュールウィジェット",
+        tagline: "シフト勤務のスケジュールウィジェット",
+        body: "職場のスケジュール画面を<strong>スクリーンショット1枚</strong>で登録すると、ホーム画面とロック画面の<strong>ウィジェット</strong>で今日の出勤・退勤時間をすぐ確認できます。週間プレビュー、勤務カウントダウン、カレンダー自動追加にも対応しています。",
+        cta: "App Storeでダウンロード",
+        support: "サポート・お問い合わせ",
+        privacy: "プライバシーポリシー"
       }
     };
     function applyLang(lang) {
@@ -108,10 +117,12 @@
     function initialLang() {
       try {
         var saved = localStorage.getItem("shift-lang");
-        if (saved === "ko" || saved === "en") { return saved; }
+        if (saved === "ko" || saved === "en" || saved === "ja") { return saved; }
       } catch (e) {}
       var nav = (navigator.language || "en").toLowerCase();
-      return nav.indexOf("ko") === 0 ? "ko" : "en";
+      if (nav.indexOf("ko") === 0) { return "ko"; }
+      if (nav.indexOf("ja") === 0) { return "ja"; }
+      return "en";
     }
     document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
       btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
