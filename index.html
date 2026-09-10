@@ -93,9 +93,14 @@
     /* 합성 컷은 배경이 페이지와 같은 크림색이라 액자를 씌우지 않는다.
        아래로 흘러 나가는 폰이 잘린 카드처럼 보이지 않게 바닥을 페이드아웃한다. */
     .row-shot--wide { max-width:430px; }
-    .row-shot--wide img {
+    .pic--bleed {
       -webkit-mask-image:linear-gradient(180deg,#000 84%,transparent 100%);
       mask-image:linear-gradient(180deg,#000 84%,transparent 100%);
+    }
+    /* 앱 화면을 잘라낸 컷 — 페이드 끝자락에 겹쳐 올린다 */
+    .pic--card {
+      margin:-14px auto 0; border-radius:14px; border:1px solid var(--line);
+      box-shadow:0 12px 28px -20px rgba(21,20,15,.4);
     }
 
     /* 추가 기능 */
@@ -201,7 +206,7 @@
                         "img": "import",
                         "eyebrow": "근무표",
                         "title": "스크린샷 한 장이면 끝",
-                        "desc": "여러 사람이 적힌 표라도 내 이름 줄을 찾아 날짜와 시간까지 정리해 줍니다. 매번 표를 훑으며 내 이름과 날짜를 찾지 않아도 돼요."
+                        "desc": "여러 사람이 적힌 표라도 내 이름 줄을 찾아 날짜와 시간까지 정리해 줍니다. 매번 표를 훑으며 내 이름과 날짜를 찾지 않아도 돼요. 그날 누구와 몇 시에 겹쳐 일하는지도 함께 보여줍니다."
                   },
                   {
                         "img": "home",
@@ -266,7 +271,7 @@
                         "img": "import",
                         "eyebrow": "Your Schedule",
                         "title": "One screenshot is enough",
-                        "desc": "Even on a roster with a dozen people, it finds your name and pulls out your dates and hours. No more scanning the table for your own row every time."
+                        "desc": "Even on a roster with a dozen people, it finds your name and pulls out your dates and hours. No more scanning the table for your own row every time. It also shows who overlaps with you that day, and for how long."
                   },
                   {
                         "img": "home",
@@ -331,7 +336,7 @@
                         "img": "import",
                         "eyebrow": "勤務表",
                         "title": "スクショ1枚で完了",
-                        "desc": "複数人が並んだ表でも、自分の名前の行を見つけて日付と時間まで整理します。毎回自分の名前と日付を探さなくても大丈夫です。"
+                        "desc": "複数人が並んだ表でも、自分の名前の行を見つけて日付と時間まで整理します。毎回自分の名前と日付を探さなくても大丈夫です。その日に誰と何時に重なるかも一緒に見られます。"
                   },
                   {
                         "img": "home",
@@ -386,11 +391,17 @@
       repeat: '<path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>',
       coin: '<circle cx="12" cy="12" r="9"/><path d="M12 7v10M14.5 9.5A2.5 2.5 0 0 0 12 8h-.3a2.2 2.2 0 0 0-.3 4.4h1.2a2.2 2.2 0 0 1-.3 4.4H12a2.5 2.5 0 0 1-2.5-1.5"/>'
     };
-    /* 화면 컷의 실제 크기와 액자 여부. import는 폰 두 대를 얹은 합성 컷이라 액자를 씌우지 않는다. */
+    /* 섹션별 화면 컷. import는 폰 두 대를 얹은 합성 컷이라 액자를 씌우지 않고,
+       coworkers는 앱 카드를 잘라낸 컷이라 테두리를 준다. */
     var SHOTS = {
-      "import": { w:900, h:1330, cls:"row-shot row-shot--wide" }
+      "import": {
+        cls: "row-shot row-shot--wide",
+        imgs: [
+          { src:"import.jpg", w:900, h:1330, cls:"pic pic--bleed" },
+          { src:"coworkers.png", w:673, h:317, cls:"pic pic--card", decorative:true }
+        ]
+      }
     };
-    var SHOT_DEFAULT = { w:760, h:1650, cls:"row-shot shot" };
 
     var APPLE = '<svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>';
     var PLAY = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M6 3 L26 24 L6 45 Z"/><path fill="#34A853" d="M6 3 L31.9 18.1 L26 24 Z"/><path fill="#FBBC04" d="M31.9 18.1 L42 24 L31.9 29.9 L26 24 Z"/><path fill="#EA4335" d="M26 24 L31.9 29.9 L6 45 Z"/></svg>';
@@ -417,13 +428,17 @@
       document.getElementById("badges-top").innerHTML = badges(t);
       document.getElementById("badges-bottom").innerHTML = badges(t);
       document.getElementById("rows").innerHTML = t.sections.map(function (s) {
-        var shot = SHOTS[s.img] || SHOT_DEFAULT;
+        var shot = SHOTS[s.img] ||
+          { cls:"row-shot shot", imgs:[{ src:s.img + ".jpg", w:760, h:1650, cls:"pic" }] };
+        var pics = shot.imgs.map(function (p) {
+          return '<img class="' + p.cls + '" src="/assets/shots/' + p.src + '" ' +
+            'width="' + p.w + '" height="' + p.h + '" loading="lazy" ' +
+            'alt="' + (p.decorative ? "" : esc(s.title)) + '">';
+        }).join("");
         return '<article class="row">' +
           '<div class="row-text"><p class="eyebrow">' + esc(s.eyebrow) + '</p>' +
           '<h2>' + esc(s.title) + '</h2><p>' + esc(s.desc) + '</p></div>' +
-          '<div class="' + shot.cls + '"><img src="/assets/shots/' + s.img + '.jpg" ' +
-          'width="' + shot.w + '" height="' + shot.h + '" loading="lazy" ' +
-          'alt="' + esc(s.title) + '"></div></article>';
+          '<div class="' + shot.cls + '">' + pics + '</div></article>';
       }).join("");
       document.getElementById("more").innerHTML = t.more.map(function (m) {
         return '<div class="card">' + svg(ICONS[m.icon] || "") +
