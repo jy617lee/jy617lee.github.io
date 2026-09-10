@@ -59,10 +59,10 @@
     }
 
     /* 히어로 */
-    .hero { padding:64px 0 8px; text-align:center; }
+    .hero { padding-top:64px; padding-bottom:8px; text-align:center; }
     .eyebrow { font-size:13px; font-weight:700; letter-spacing:.06em; color:var(--accent); margin-bottom:14px; }
     .hero h1 { font-size:clamp(30px,7.2vw,52px); white-space:pre-line; font-weight:800; }
-    .hero-sub { margin:18px auto 0; max-width:600px; font-size:16px; color:var(--muted); }
+    .hero-sub { margin:18px auto 0; max-width:560px; font-size:16px; color:var(--muted); }
     .badges { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:26px 0 0; }
     .badge-link {
       display:flex; align-items:center; gap:12px; padding:12px 20px; border-radius:16px;
@@ -74,8 +74,6 @@
     .badge-eyebrow { display:block; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
     .badge-name { display:block; font-size:17px; font-weight:700; line-height:1.2; }
 
-    /* 히어로 이미지 */
-    .hero-shot { margin:40px auto 0; max-width:300px; }
     .shot {
       border-radius:26px; border:1px solid var(--line); overflow:hidden; background:#fff;
       box-shadow:0 18px 40px -22px rgba(21,20,15,.35);
@@ -124,8 +122,7 @@
     @media (min-width:760px) {
       .shell { padding:0 48px; }
       .nav-cta { display:inline-block; }
-      .hero { padding:88px 0 0; }
-      .hero-shot { max-width:330px; margin-top:48px; }
+      .hero { padding-top:88px; padding-bottom:0; }
       .row { grid-template-columns:1fr 1fr; gap:56px; }
       .row:nth-child(even) .row-shot { order:-1; }
       .row-text { text-align:left; }
@@ -159,7 +156,6 @@
       <h1 data-i18n="hero_title"></h1>
       <p class="hero-sub" data-i18n="hero_sub"></p>
       <div class="badges" id="badges-top"></div>
-      <div class="hero-shot shot"><img src="/assets/shots/home.jpg" width="760" height="1650" alt="" id="hero-img"></div>
     </header>
 
     <div class="shell">
@@ -193,7 +189,7 @@
             "nav_download": "다운로드",
             "hero_eyebrow": "교대근무자를 위한 스케줄 위젯",
             "hero_title": "근무표를 찍으면,\n오늘 몇 시 출근인지\n홈 화면 위젯에 뜹니다.",
-            "hero_sub": "사내 스케줄 앱을 열고 스크롤할 필요가 없어요. 스크린샷 한 장만 올리면 홈 화면과 잠금화면 위젯이 알아서 알려줍니다.",
+            "hero_sub": "사내 앱 스크린샷이든, 공유받은 근무표 사진이든 한 장만 올리면 됩니다. 그다음은 홈 화면과 잠금화면 위젯이 알아서 알려줘요.",
             "sections_title": "어떻게 쓰나요",
             "more_title": "이런 것도 합니다",
             "cta_title": "오늘 출근이 몇 시였더라,\n더는 찾지 않아도 됩니다.",
@@ -205,13 +201,13 @@
                         "img": "import",
                         "eyebrow": "근무표",
                         "title": "스크린샷 한 장이면 끝",
-                        "desc": "사내 앱 스크린샷이든, 단톡방에 올라온 근무표 사진이든 올리기만 하세요. 여러 사람이 적힌 표에서 내 이름 줄을 찾아 날짜와 시간까지 정리해 줍니다. 두 달치를 여러 장 한 번에 올려도 되고, 저장 전에 사진과 나란히 놓고 확인할 수 있어요."
+                        "desc": "여러 사람이 적힌 표라도 내 이름 줄을 찾아 날짜와 시간까지 정리해 줍니다. 매번 표를 훑으며 내 이름과 날짜를 찾지 않아도 돼요."
                   },
                   {
                         "img": "home",
                         "eyebrow": "홈 화면 위젯",
                         "title": "열지 않고도 보이는 근무",
-                        "desc": "오늘 출퇴근 시간, 다음 근무까지 남은 시간, 이번 주와 이번 달 미리보기. 크기별로 골라 두면 홈 화면에서 바로 보입니다. 배경 투명도는 취향대로 맞추세요."
+                        "desc": "오늘 출퇴근 시간, 다음 근무까지 남은 시간, 이번 주와 이번 달 미리보기. 크기별로 골라 두면 홈 화면에서 바로 보입니다."
                   },
                   {
                         "img": "lock",
@@ -223,7 +219,7 @@
                         "img": "calendar",
                         "eyebrow": "캘린더",
                         "title": "쓰던 캘린더에 그대로",
-                        "desc": "등록한 근무를 기기 캘린더에 자동으로 얹습니다. 가족과 공유하는 캘린더에 넣어두면 약속 잡기가 쉬워져요. 일정 제목과 시간 표기 방식도 정할 수 있습니다."
+                        "desc": "읽어들인 내 근무를 기기 캘린더에 자동으로 등록합니다. 가족과 공유하는 캘린더에 넣어두면 약속 잡기가 쉬워져요."
                   }
             ],
             "more": [
@@ -258,7 +254,7 @@
             "nav_download": "Download",
             "hero_eyebrow": "A schedule widget for shift workers",
             "hero_title": "Snap your schedule.\nSee when you start\nright on your home widget.",
-            "hero_sub": "No more opening the work app and scrolling. One screenshot, and your home and lock screen widgets keep you posted.",
+            "hero_sub": "A screenshot from the app at work, or a photo someone shared — just upload one. From there your home and lock screen widgets keep you posted.",
             "sections_title": "How it works",
             "more_title": "It also does this",
             "cta_title": "Stop hunting for\nwhat time you start.",
@@ -270,13 +266,13 @@
                         "img": "import",
                         "eyebrow": "Your Schedule",
                         "title": "One screenshot is enough",
-                        "desc": "A screenshot of the app at work, or just the roster photo someone dropped in the group chat — either one works. It finds your name in the table and pulls out your dates and hours, so you don't have to. Add several photos at once for two months, and check the result side by side with the photo before saving."
+                        "desc": "Even on a roster with a dozen people, it finds your name and pulls out your dates and hours. No more scanning the table for your own row every time."
                   },
                   {
                         "img": "home",
                         "eyebrow": "Home Screen Widget",
                         "title": "Your shift, without opening anything",
-                        "desc": "Today's hours, a countdown to your next shift, and previews of this week and this month. Pick the sizes you want and they sit right on your home screen. Background opacity is yours to set."
+                        "desc": "Today's hours, a countdown to your next shift, and previews of this week and this month. Pick the sizes you want and they sit right on your home screen."
                   },
                   {
                         "img": "lock",
@@ -288,7 +284,7 @@
                         "img": "calendar",
                         "eyebrow": "Calendar",
                         "title": "In the calendar you already use",
-                        "desc": "Your shifts land in your device calendar automatically. Put them in a shared family calendar and making plans gets easier. Set the event title and how times are shown."
+                        "desc": "Your shifts are added to your device calendar automatically. Put them in a shared family calendar and making plans gets easier."
                   }
             ],
             "more": [
@@ -323,7 +319,7 @@
             "nav_download": "ダウンロード",
             "hero_eyebrow": "シフト勤務者のためのスケジュールウィジェット",
             "hero_title": "勤務表を撮るだけで、\n今日の出勤時間が\nホーム画面ウィジェットに出ます。",
-            "hero_sub": "職場のアプリを開いてスクロールする必要はありません。スクリーンショット1枚で、ホーム画面とロック画面のウィジェットが教えてくれます。",
+            "hero_sub": "職場アプリのスクリーンショットでも、共有された勤務表の写真でも、1枚上げるだけ。あとはホーム画面とロック画面のウィジェットが教えてくれます。",
             "sections_title": "使い方",
             "more_title": "こんなこともできます",
             "cta_title": "今日は何時からだったか、\nもう探さなくていい。",
@@ -335,13 +331,13 @@
                         "img": "import",
                         "eyebrow": "勤務表",
                         "title": "スクショ1枚で完了",
-                        "desc": "職場アプリのスクリーンショットでも、グループチャットに共有された勤務表の写真でも大丈夫。複数人が並んだ表から自分の名前の行を見つけて、日付と時間まで整理します。2か月分をまとめて追加でき、保存前に写真と並べて確認できます。"
+                        "desc": "複数人が並んだ表でも、自分の名前の行を見つけて日付と時間まで整理します。毎回自分の名前と日付を探さなくても大丈夫です。"
                   },
                   {
                         "img": "home",
                         "eyebrow": "ホーム画面ウィジェット",
                         "title": "開かなくても見える勤務",
-                        "desc": "今日の出退勤時間、次の勤務までのカウントダウン、今週と今月のプレビュー。サイズを選んで置けばホーム画面ですぐ確認できます。背景の透明度も調整できます。"
+                        "desc": "今日の出退勤時間、次の勤務までのカウントダウン、今週と今月のプレビュー。サイズを選んで置けばホーム画面ですぐ確認できます。"
                   },
                   {
                         "img": "lock",
@@ -353,7 +349,7 @@
                         "img": "calendar",
                         "eyebrow": "カレンダー",
                         "title": "いつものカレンダーにそのまま",
-                        "desc": "登録した勤務を端末のカレンダーに自動で追加します。家族と共有するカレンダーに入れておけば予定が立てやすくなります。予定のタイトルや時刻の表示方法も選べます。"
+                        "desc": "登録した勤務を端末のカレンダーに自動で登録します。家族と共有するカレンダーに入れておけば予定が立てやすくなります。"
                   }
             ],
             "more": [
@@ -433,7 +429,6 @@
         return '<div class="card">' + svg(ICONS[m.icon] || "") +
           '<div><h3>' + esc(m.title) + '</h3><p>' + esc(m.desc) + '</p></div></div>';
       }).join("");
-      document.getElementById("hero-img").alt = t.sections[1] ? t.sections[1].title : "";
       document.querySelectorAll(".lang button").forEach(function (b) {
         b.classList.toggle("active", b.getAttribute("data-lang") === lang);
       });
