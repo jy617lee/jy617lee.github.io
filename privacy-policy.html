@@ -73,15 +73,16 @@
         htmlTitle: "The Shift — 개인정보처리방침",
         back: "← The Shift",
         title: "개인정보처리방침",
-        updated: "시행일: 2026년 7월 15일 · The Shift (Jeeyun Lee)",
+        updated: "시행일: 2026년 9월 11일 · The Shift (Jeeyun Lee)",
         contactLead: "문의:",
         sections: [
-          { h: "요약", b: "<p>The Shift는 <strong>계정 없이, 서버 없이</strong> 동작합니다. 스케줄 데이터는 회원가입 없이 사용자의 기기에만 저장되며, 이름·이메일·사번·위치 등 개인 식별 정보를 수집하지 않습니다.</p>" },
+          { h: "요약", b: "<p>The Shift는 <strong>계정 없이</strong> 동작합니다. 스케줄 데이터는 회원가입 없이 사용자의 기기에만 저장되며, 이름·이메일·사번·위치 등 개인 식별 정보를 수집하지 않습니다. 기기 밖으로 나가는 것은 아래에 적은 익명 사용 통계·광고, 그리고 사용자가 직접 보낸 미지원 형식 제보뿐입니다.</p>" },
           { h: "기기에만 저장되는 정보", b: "<p>등록한 근무 스케줄과 앱 설정은 기기 내부에만 저장됩니다. 외부 서버로 전송되지 않으며, 앱을 삭제하면 함께 삭제되고 복구할 수 없습니다.</p>" },
-          { h: "스케줄 이미지", b: "<p>스케줄 인식을 위해 선택한 이미지는 <strong>기기 안에서만</strong> 처리되며, 인식이 끝나는 즉시 메모리에서 삭제됩니다. 이미지를 저장하거나 외부로 전송하지 않습니다. 사진 보관함은 시스템 선택기(PhotosPicker)를 통해 사용자가 고른 이미지에만 접근합니다.</p>" },
+          { h: "스케줄 이미지", b: "<p>스케줄 인식을 위해 선택한 이미지는 <strong>기기 안에서</strong> 처리되며, 인식이 끝나면 메모리에서 삭제됩니다. 스케줄을 등록할 때 이미지를 저장하거나 외부로 전송하지 않습니다. 사진 보관함은 시스템 선택기(PhotosPicker)를 통해 사용자가 고른 이미지에만 접근합니다.</p>" },
+          { h: "미지원 형식 제보 (선택)", b: "<p>앱이 읽지 못한 스케줄 형식이 나오면, 사용자가 <strong>[이미지 보내기]를 누른 경우에만</strong> 그 이미지를 개발자에게 보냅니다. 누르지 않으면 아무것도 전송되지 않습니다.</p><ul><li><strong>보내는 정보</strong>: 이미지 원본, 진단 정보(앱 버전, OS 버전, 기기 모델, 언어·지역 설정), 기기에서 만든 무작위 익명 ID. 이름·이메일·사번은 입력받지 않지만, 이미지에는 스케줄에 적힌 이름 등이 들어 있을 수 있습니다.</li><li><strong>목적</strong>: 그 스케줄 형식을 앱이 읽을 수 있게 하는 작업에만 씁니다.</li><li><strong>전달 경로와 보관</strong>: 암호화된 연결로 Cloudflare(미국)를 거쳐 개발자의 업무용 메신저 Slack(미국)에 저장됩니다. Slack 무료 플랜 정책에 따라 90일이 지나면 열람할 수 없게 되고, 1년이 지나면 삭제됩니다. 중복·과다 전송을 막기 위해 이미지의 해시값과 익명 ID별 전송 횟수를 Cloudflare에 최대 48시간 보관합니다.</li><li><strong>기기 안 사본</strong>: 형식이 지원됐는지 나중에 다시 확인하기 위해 보낸 이미지 사본을 앱 안에 보관합니다. 다음 제보를 보내거나 앱을 삭제하면 지워집니다.</li></ul>" },
           { h: "앱 사용 통계 (Google Firebase)", b: "<p>앱 개선을 위해 화면 조회·기능 사용 같은 익명 사용 통계를 수집합니다. 식별자는 기기에서 생성된 무작위 UUID이며 개인을 특정할 수 없습니다. 스케줄 원문·이미지·개인 식별 정보는 분석 데이터에 포함되지 않습니다. 자세한 내용은 <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Google 개인정보처리방침</a>을 참고하세요.</p>" },
           { h: "광고 (Google AdMob)", b: "<p>무료 이용 시 광고가 표시됩니다. iOS의 앱 추적 투명성(ATT) 프롬프트에서 허용한 경우에만 광고 식별자(IDFA)가 맞춤 광고에 사용될 수 있으며, 거부하면 일반 광고가 표시됩니다. 자세한 내용은 <a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>Google 광고 정책</a>을 참고하세요.</p>" },
-          { h: "권한", b: "<ul><li><strong>캘린더</strong>: 캘린더 연동을 켠 경우, 스케줄을 기기 캘린더에 추가하는 목적으로만 사용합니다.</li><li><strong>사진</strong>: 시스템 선택기로 사용자가 고른 이미지에만 접근합니다.</li></ul>" },
+          { h: "권한", b: "<ul><li><strong>캘린더</strong>: 캘린더 연동을 켠 경우, 스케줄을 기기 캘린더에 추가하는 목적으로만 사용합니다.</li><li><strong>사진</strong>: 시스템 선택기로 사용자가 고른 이미지에만 접근합니다.</li><li><strong>알림</strong>: 근무 알람과, 제보한 형식이 지원됐다는 알림을 보내는 데에만 사용합니다.</li></ul>" },
           { h: "결제", b: "<p>Pro 구매는 Apple App Store 또는 Google Play를 통해 처리되며, 앱은 결제 수단 정보에 접근하지 않습니다.</p>" },
           { h: "변경 고지", b: "<p>이 방침이 변경되면 이 페이지에 갱신 일자와 함께 게시합니다.</p>" }
         ]
@@ -90,15 +91,16 @@
         htmlTitle: "The Shift — Privacy Policy",
         back: "← The Shift",
         title: "Privacy Policy",
-        updated: "Effective: July 15, 2026 · The Shift (Jeeyun Lee)",
+        updated: "Effective: September 11, 2026 · The Shift (Jeeyun Lee)",
         contactLead: "Contact:",
         sections: [
-          { h: "Summary", b: "<p>The Shift works <strong>without accounts and without servers</strong>. Your schedule data stays on your device, and we do not collect personally identifiable information such as your name, email, employee ID, or location.</p>" },
+          { h: "Summary", b: "<p>The Shift works <strong>without accounts</strong>. Your schedule data stays on your device, and we do not collect personally identifiable information such as your name, email, employee ID, or location. The only things that leave your device are the anonymous usage statistics and ads described below, and an unsupported-format report if you choose to send one.</p>" },
           { h: "Data stored on your device only", b: "<p>Your work schedules and app settings are stored only on your device. They are never sent to an external server, and they are deleted with the app and cannot be recovered.</p>" },
-          { h: "Schedule images", b: "<p>Images you select for schedule recognition are processed <strong>entirely on your device</strong> and discarded from memory as soon as recognition finishes. Images are never saved or transmitted. The app accesses only the photos you pick through the system photo picker.</p>" },
+          { h: "Schedule images", b: "<p>Images you select for schedule recognition are processed <strong>on your device</strong> and discarded from memory when recognition finishes. They are not saved or transmitted when you add a schedule. The app accesses only the photos you pick through the system photo picker.</p>" },
+          { h: "Unsupported-format reports (optional)", b: "<p>If the app can't read a schedule format, the image is sent to the developer <strong>only if you tap “Send image”</strong>. Nothing is sent otherwise.</p><ul><li><strong>What is sent</strong>: the original image, diagnostic details (app version, OS version, device model, language and region), and a random anonymous ID generated on your device. We don't ask for your name, email, or employee ID, but the image itself may contain names printed on the schedule.</li><li><strong>Purpose</strong>: used only to add support for that schedule format.</li><li><strong>Where it goes and how long it is kept</strong>: sent over an encrypted connection through Cloudflare (USA) to the developer's work messenger, Slack (USA). Under Slack's free-plan policy, it becomes inaccessible after 90 days and is deleted after one year. To prevent duplicate or excessive sends, an image hash and a per-ID send count are kept on Cloudflare for up to 48 hours.</li><li><strong>Copy on your device</strong>: a copy of the sent image is kept inside the app so it can check again later whether the format is supported. It is removed when you send another report or delete the app.</li></ul>" },
           { h: "Usage analytics (Google Firebase)", b: "<p>To improve the app, we collect anonymous usage statistics such as screen views and feature usage. The identifier is a random UUID generated on your device and cannot identify you personally. Schedule contents, images, and personal information are never included. See the <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Google Privacy Policy</a> for details.</p>" },
           { h: "Advertising (Google AdMob)", b: "<p>Ads are shown to free users. The advertising identifier (IDFA) is used for personalized ads only if you allow it in the iOS App Tracking Transparency prompt; otherwise non-personalized ads are shown. See <a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>how Google uses ad data</a>.</p>" },
-          { h: "Permissions", b: "<ul><li><strong>Calendar</strong>: used only to add your schedule to your device calendar when calendar export is enabled.</li><li><strong>Photos</strong>: only the images you pick through the system picker are accessed.</li></ul>" },
+          { h: "Permissions", b: "<ul><li><strong>Calendar</strong>: used only to add your schedule to your device calendar when calendar export is enabled.</li><li><strong>Photos</strong>: only the images you pick through the system picker are accessed.</li><li><strong>Notifications</strong>: used only for shift reminders and to let you know when a format you reported is supported.</li></ul>" },
           { h: "Payments", b: "<p>Pro purchases are processed by the Apple App Store or Google Play. The app never accesses your payment details.</p>" },
           { h: "Changes", b: "<p>If this policy changes, the update will be posted on this page with a new effective date.</p>" }
         ]
@@ -107,15 +109,16 @@
         htmlTitle: "The Shift — プライバシーポリシー",
         back: "← The Shift",
         title: "プライバシーポリシー",
-        updated: "施行日: 2026年7月15日 · The Shift (Jeeyun Lee)",
+        updated: "施行日: 2026年9月11日 · The Shift (Jeeyun Lee)",
         contactLead: "お問い合わせ:",
         sections: [
-          { h: "概要", b: "<p>The Shiftは<strong>アカウントなし・サーバーなし</strong>で動作します。スケジュールデータは会員登録なしで利用者の端末にのみ保存され、氏名・メールアドレス・社員番号・位置情報などの個人を特定できる情報は収集しません。</p>" },
+          { h: "概要", b: "<p>The Shiftは<strong>アカウントなし</strong>で動作します。スケジュールデータは会員登録なしで利用者の端末にのみ保存され、氏名・メールアドレス・社員番号・位置情報などの個人を特定できる情報は収集しません。端末の外に送られるのは、下記の匿名の利用統計・広告と、利用者が自分で送信した未対応形式の報告だけです。</p>" },
           { h: "端末にのみ保存される情報", b: "<p>登録した勤務スケジュールとアプリの設定は、端末内にのみ保存されます。外部サーバーには送信されず、アプリを削除すると一緒に削除され、復元できません。</p>" },
-          { h: "スケジュール画像", b: "<p>スケジュール認識のために選択した画像は<strong>端末内でのみ</strong>処理され、認識が終わり次第メモリから削除されます。画像を保存したり、外部に送信することはありません。写真ライブラリへは、システムの選択画面（PhotosPicker）で利用者が選んだ画像にのみアクセスします。</p>" },
+          { h: "スケジュール画像", b: "<p>スケジュール認識のために選択した画像は<strong>端末内で</strong>処理され、認識が終わるとメモリから削除されます。スケジュールを登録する際に画像を保存したり、外部に送信することはありません。写真ライブラリへは、システムの選択画面（PhotosPicker）で利用者が選んだ画像にのみアクセスします。</p>" },
+          { h: "未対応形式の報告（任意）", b: "<p>アプリが読み取れないスケジュール形式があった場合、利用者が<strong>「画像を送る」を押したときだけ</strong>、その画像を開発者に送信します。押さなければ何も送信されません。</p><ul><li><strong>送信する情報</strong>: 元の画像、診断情報（アプリのバージョン、OSのバージョン、端末の機種、言語・地域の設定）、端末で生成したランダムな匿名ID。氏名・メールアドレス・社員番号の入力は求めませんが、画像にはシフト表に記載された氏名などが含まれる場合があります。</li><li><strong>目的</strong>: その形式をアプリで読み取れるようにする作業にのみ使用します。</li><li><strong>送信経路と保存期間</strong>: 暗号化された通信でCloudflare（米国）を経由し、開発者の業務用メッセンジャーSlack（米国）に保存されます。Slack無料プランのポリシーにより、90日を過ぎると閲覧できなくなり、1年を過ぎると削除されます。重複送信や過剰な送信を防ぐため、画像のハッシュ値と匿名IDごとの送信回数をCloudflareに最大48時間保存します。</li><li><strong>端末内のコピー</strong>: 後で対応済みかどうかを再確認するため、送信した画像のコピーをアプリ内に保存します。次の報告を送るか、アプリを削除すると消去されます。</li></ul>" },
           { h: "利用統計（Google Firebase）", b: "<p>アプリ改善のため、画面表示や機能の利用状況といった匿名の利用統計を収集します。識別子は端末で生成されたランダムなUUIDで、個人を特定することはできません。スケジュールの内容・画像・個人情報が分析データに含まれることはありません。詳細は<a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Googleプライバシーポリシー</a>をご覧ください。</p>" },
           { h: "広告（Google AdMob）", b: "<p>無料でご利用の場合、広告が表示されます。iOSのアプリのトラッキングの透明性（ATT）プロンプトで許可した場合にのみ、広告識別子（IDFA）がパーソナライズド広告に使用されることがあります。許可しない場合は、一般的な広告が表示されます。詳細は<a href='https://policies.google.com/technologies/ads' target='_blank' rel='noopener'>Google広告ポリシー</a>をご覧ください。</p>" },
-          { h: "権限", b: "<ul><li><strong>カレンダー</strong>: カレンダー連携をオンにした場合、スケジュールを端末のカレンダーに追加する目的でのみ使用します。</li><li><strong>写真</strong>: システムの選択画面で利用者が選んだ画像にのみアクセスします。</li></ul>" },
+          { h: "権限", b: "<ul><li><strong>カレンダー</strong>: カレンダー連携をオンにした場合、スケジュールを端末のカレンダーに追加する目的でのみ使用します。</li><li><strong>写真</strong>: システムの選択画面で利用者が選んだ画像にのみアクセスします。</li><li><strong>通知</strong>: 勤務アラームと、報告した形式に対応したことをお知らせするためにのみ使用します。</li></ul>" },
           { h: "決済", b: "<p>Proの購入はApple App StoreまたはGoogle Playを通じて処理され、アプリが決済情報にアクセスすることはありません。</p>" },
           { h: "変更のお知らせ", b: "<p>本ポリシーを変更した場合は、更新日とあわせて本ページに掲載します。</p>" }
         ]
